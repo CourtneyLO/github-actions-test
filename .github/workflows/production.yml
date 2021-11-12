@@ -12,11 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: production
-      - name: Reset promotion branch
-        run: |
-          git fetch origin main:main
-          git reset --hard main
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: github-actions-test/create-pull-request@v3
         with:
-          branch: production
+          branch: main
