@@ -1,18 +1,27 @@
-name: Create production promotion pull request
+name: 'Production'
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Enter 'YES' to confirm:"
+        required: true
+        default: 'NO'
 
 jobs:
-  productionPromotion:
+  terraform_dev:
+    name: 'Terraform Production'
     runs-on: ubuntu-latest
+    environment: production
+    env:
+      TF_WORKSPACE: production
+
+    defaults:
+      run:
+        shell: bash
+
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: production
-      - name: Create Pull Request
-        uses: github-actions-test/create-pull-request@v3
-        with:
-          branch: main
+
+      - name: Compile
+        run: echo Hello, world Production!

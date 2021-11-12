@@ -1,28 +1,27 @@
-name: Staging
+name: 'Staging'
 
 on:
   push:
-    branches: [ main ]
+    branches:
+    - main
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+    - main
 
 jobs:
-  Build:
+  terraform_dev:
+    name: 'Terraform Staging'
     runs-on: ubuntu-latest
+    environment: staging
+    env:
+      TF_WORKSPACE: staging
+
+    defaults:
+      run:
+        shell: bash
+
     steps:
       - uses: actions/checkout@v2
 
       - name: Compile
-        run: echo Hello, world!
-
-  DeployStaging:
-    name: Deploy to Staging
-    if: github.event.ref == 'refs/heads/main'
-    needs: [Build]
-    runs-on: ubuntu-latest
-    environment:
-      name: Staging
-    steps:
-      - name: Deploy
-        run: echo I am deploying!
+        run: echo Hello, world Staging!
