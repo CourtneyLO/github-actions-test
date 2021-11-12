@@ -25,5 +25,5 @@ jobs:
 
       - name: Compile
         run: |
-          gh auth login --hostname GitHub.com --with-token < token.txt;
-          gh auth status
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+          bash ./create-pull-request.sh $TOKEN
