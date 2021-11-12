@@ -46,6 +46,7 @@ jobs:
   DeployProd:
     name: Deploy to Production
     needs: [DeployStaging]
+    plan: github.event.inputs.confirmation == 'YES' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: Production
