@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Enter 'YES' to confirm:"
+        required: true
+        default: 'NO'
 
 jobs:
   Build:
