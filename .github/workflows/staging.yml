@@ -1,0 +1,30 @@
+name: 'Staging'
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  terraform_dev:
+    name: 'Terraform Staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      TF_WORKSPACE: staging
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compile
+        if: github.ref == 'refs/heads/main'
+        run: |
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+          bash ./create-pull-request.sh $TOKEN
