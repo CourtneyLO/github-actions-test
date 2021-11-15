@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Compile
+        if: github.ref == 'refs/heads/main'
         run: |
           TOKEN=${{ secrets.GITHUB_TOKEN }}
           bash ./create-pull-request.sh $TOKEN
