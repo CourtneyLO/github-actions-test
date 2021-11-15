@@ -15,6 +15,7 @@ jobs:
     environment: staging
     env:
       TF_WORKSPACE: staging
+      GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
 
     defaults:
       run:
