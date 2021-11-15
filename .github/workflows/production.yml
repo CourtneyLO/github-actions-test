@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Pull Request
-        if: github.ref == 'refs/heads/production' && github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request'
         run: echo Hello, world Production Pull Request!
 
       - name: Push
