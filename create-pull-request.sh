@@ -6,7 +6,7 @@ GITHUB_REF=$2
 echo $TOKEN > token.txt
 echo "hello"
 echo "$GITHUB_REF"
-echo "hello
+echo "hello"
 
 gh auth login --hostname GitHub.com --with-token < token.txt;
 gh pr view
