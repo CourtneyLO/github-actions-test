@@ -11,10 +11,8 @@ on:
     inputs:
       confirmation:
         description: "Enter 'YES' to confirm:"
-        required: true
+        required: false
         default: 'YES'
-
-
 
 jobs:
   terraform_dev:
