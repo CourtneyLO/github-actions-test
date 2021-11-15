@@ -32,5 +32,5 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           TOKEN=${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF=${{ github.GITHUB_REF }}
+          GITHUB_REF=56
           bash ./create-pull-request.sh $TOKEN
