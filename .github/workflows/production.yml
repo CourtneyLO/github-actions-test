@@ -1,12 +1,6 @@
 name: 'Production'
 
-on:
-  push:
-    branches:
-    - production
-  pull_request:
-    branches:
-    - production
+on: workflow_dispatch
 
 jobs:
   terraform_dev:
