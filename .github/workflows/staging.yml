@@ -34,4 +34,4 @@ jobs:
           TOKEN=${{ secrets.GITHUB_TOKEN }}
           GITHUB_REF=${GITHUB_REF##*/}
           echo ${GITHUB_REF##*/}
-          bash ./create-pull-request.sh $TOKEN
+          bash ./create-pull-request.sh $TOKEN $GITHUB_REF
