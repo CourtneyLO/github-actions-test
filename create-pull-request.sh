@@ -4,7 +4,7 @@ TOKEN=$1
 GITHUB_REF=$2
 
 echo $TOKEN > token.txt
-echo "hello
+echo "hello"
 echo "$GITHUB_REF"
 echo "hello
 
