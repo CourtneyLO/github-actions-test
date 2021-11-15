@@ -1,6 +1,20 @@
 name: 'Production'
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+    - production
+  pull_request:
+    branches:
+    - production
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Enter 'YES' to confirm:"
+        required: true
+        default: 'YES'
+
+
 
 jobs:
   terraform_dev:
