@@ -23,6 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Compile
-        if: github.ref == 'refs/heads/production'
-        run: echo Hello, world Production!
+      - name: Pull Request
+        if: github.ref == 'refs/heads/production' && github.event_name == 'pull request'
+        run: echo Hello, world Production Pull Request!
+
+      - name: Push
+        if: github.ref == 'refs/heads/production' && github.event_name == 'push'
+        run: echo Hello, world Production Push!
