@@ -1,5 +1,13 @@
 name: 'Production'
 
+on:
+  push:
+    branches:
+    - production
+  pull_request:
+    branches:
+    - production
+
 jobs:
   terraform_dev:
     name: 'Terraform Production'
