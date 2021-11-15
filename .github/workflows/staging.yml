@@ -36,5 +36,5 @@ jobs:
           echo ${GITHUB_REF##*}
           echo ${GITHUB_REF##}
           echo ${GITHUB_REF#}
-          cho ${GITHUB_REF}
+          echo ${GITHUB_REF}
           bash ./create-pull-request.sh $TOKEN
