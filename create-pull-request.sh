@@ -1,10 +1,11 @@
 #!/bin/sh
 
 TOKEN=$1
+GITHUB_REF=$2
 
 echo $TOKEN > token.txt
 
 gh auth login --hostname GitHub.com --with-token < token.txt;
-echo gh pr view > pr.txt
-gh pr create --base production --head main --title "Release to Production" --body-file pr.txt
+gh pr view
+gh pr create --base production --head main --title "Release to Production ${GITHUB_REF}" --body "This work has been tested"
 gh workflow run production.yml -F confirmation=YES
