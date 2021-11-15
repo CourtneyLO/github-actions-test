@@ -4,9 +4,6 @@ on:
   push:
     branches:
     - production
-  pull_request:
-    branches:
-    - production
 
 jobs:
   terraform_dev:
@@ -29,4 +26,4 @@ jobs:
 
       - name: Push
         if: github.ref == 'refs/heads/production' && github.event_name == 'push'
-        run: echo Hello, world Production Push!
+        run: echo Hello, world Production Push ${{ github.event_name }}!
